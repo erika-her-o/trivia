@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trivia</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!--Encabezado-->
+    <header class="background">
+      <div class="transparent">
+        <h1>¿Conoces a ...?</h1>
+      </div>
+    </header>
+
+    <!--Bienvenida-->tg
+    <div id="welcome">
+      <h2>Bienvenid@s a <em>¿Conoces a ...?</em></h2>
+      <p>
+        Un sitio donde te desafiamos a responder cuantos sabes de dibujos
+        animados de ayer y hoy.
+      </p>
+      <p>¿Te sientes capaz de responder correctamente trivias?</p>
+      <br />
+
+      <!--Usuario ingresa su nombre para que juegue en la trivia y botón siguiente-->
+      <label>Ingrese su nombre </label>
+      <input type="text" id="name-user" />
+      <button id="next">Siguiente</button>
+    </div>
+
+    <!--Pantalla de trivia-->
+    <!--Saluda con nombre del usuario-->
+    <!--Elección de trivias. Cuando haga click en una de ellas pasará a la trivia escogida-->
+    <div id="trivias" class="trivia hide">
+      <p id="greeting-with-name"></p>
+      <p>Elige entre estas trivias</p>
+      <div class="buttons">
+        <button id="trivia-one">
+          Dibujos de antes
+          <img
+            src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/480/public/media/image/2020/09/dragon-ball-son-goku-2063605.jpg?itok=vmuqSsa-"
+            alt="trivia1"
+          />
+        </button>
+        <button id="trivia-two">
+          Dibujos de ahora <img
+          src=https://3.bp.blogspot.com/-rF9mYN86Jj4/WeEMSseIa9I/AAAAAAAAJUs/NbmV2mAzck45rEQM9sx7d_v017_gr9bmwCLcBGAs/s1600/Rick_and_Morty_Adult_Swim_Dan_Harmon_Serie_Television.jpg
+          alt=trivia2 />
+        </button>
+      </div>
+    </div>
+
+    <!--Preguntas opción trivia 1 (Dibujos de antes)-->
+    <div id="question-a-trivia-one" class="question hide">
+      <p>¿Quién es este personaje?</p>
+      <img
+        src="https://aplicacionesdroid.com/wp-content/uploads/PICAPIEDRA-300x300.png"
+        alt="pedro"
+      />
+      <div class="alternatives">
+        <button>Pedro Picapiedra</button>
+        <button>Pablo Marmol</button>
+        <button>Bam Bam</button>
+      </div>
+    </div>
+
+    <div id="question-b-trivia-one" class="question hide">
+      <p>¿Quién es este personaje?</p>
+      <img
+        src="https://diariocorreo.pe/resizer/MnIG7enCm0uO8IeSw4L5QBCQXhM=/580x330/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/EG6VFHOYYBH7DANQ3MFM6LJ2OQ.jpg"
+        alt="helga"
+      />
+      <div class="alternatives">
+        <button>Lisa Simpson</button>
+        <button>Helga Pataki</button>
+        <button>Cenicienta</button>
+      </div>
+    </div>
+
+    <div id="question-c-trivia-one" class="question hide">
+      <p>¿Quién es este personaje?</p>
+      <img
+        src="https://depor.com/resizer/n1SNWLxRMErMITye1sk29g1ivb8=/580x330/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/DQGZCSR6TNGZVI2D6BSKGBGOPA.jpg"
+        alt="majin-boo"
+      />
+      <div class="alternatives">
+        <button>Freezer</button>
+        <button>Mr. Satán</button>
+        <button>Majin Boo</button>
+      </div>
+    </div>
+
+    <!--Resultados trivia 1-->
+    <!--Los textos e imagenes de resultados estan en script-->
+    <div id="results-trivia-one" class="results hide">
+      <p></p>
+      <p></p>
+      <img src="" alt="" />
+      <button>Volver al inicio</button>
+    </div>
+
+    <!--Preguntas opción trivia 2 (Dibujos de ahora)-->
+    <div id="question-a-trivia-two" class="question hide">
+      <p>¿Quién es este personaje?</p>
+      <img
+        src="https://arc-anglerfish-arc2-prod-copesa.s3.amazonaws.com/public/SFCMA4JFXFF3ZNDHXLNOVEJ74Y.jpg"
+        alt="clarence"
+      />
+      <div class="alternatives">
+        <button>Jeff</button>
+        <button>Sumo</button>
+        <button>Clarence</button>
+      </div>
+    </div>
+
+    <div id="question-b-trivia-two" class="question hide">
+      <p>¿Quién es este personaje?</p>
+      <img
+        src="https://media1.giphy.com/media/f31DK1KpGsyMU/200w.webp?cid=ecf05e47x0fwy1o0ak84u8pkb9we87epmhuz4dcb1kmjexrt&rid=200w.webp"
+        alt="horaDeAventura"
+      />
+      <div class="alternatives">
+        <button>Jake</button>
+        <button>Bart Simpson</button>
+        <button>Bob sponja</button>
+      </div>
+    </div>
+
+    <div id="question-c-trivia-two" class="question hide">
+      <p>¿Quién es este personaje?</p>
+      <img
+        src="https://media1.giphy.com/media/3o85xLjysBUs1cpdoA/200w.webp?cid=ecf05e47097dex24qelbtjlz5sdxflornjhp4c2weuwwfo7z&rid=200w.webp"
+        alt="stevenUniverse"
+      />
+      <div class="alternatives">
+        <button>Paw patrol</button>
+        <button>Miraculous</button>
+        <button>Steven Cuarzo Universe</button>
+      </div>
+    </div>
+
+    <!--Resultados trivia 2-->
+    <!--Los textos e imagenes de resultados estan en script-->
+    <div id="results-trivia-two" class="results hide">
+      <p></p>
+      <p></p>
+      <img src="" alt="" />
+      <button> Volver al inicio </button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
