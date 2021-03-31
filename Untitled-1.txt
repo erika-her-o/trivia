@@ -1,0 +1,147 @@
+//Declaración de constantes, las cuales almacenan elementos del DOM por su id o selector de tag.
+const nameUser = document.getElementById('name-user');
+const next = document.getElementById('next');
+const greetingWithName = document.getElementById('greeting-with-name');
+const welcome = document.getElementById('welcome');
+const trivias = document.getElementById('trivias');
+const triviaOne = document.getElementById('trivia-one');
+const triviaTwo = document.getElementById('trivia-two');
+const questionATriviaOne = document.getElementById('question-a-trivia-one');
+const questionATriviaOneButtons = document.querySelectorAll('#question-a-trivia-one button');
+const questionBTriviaOne = document.getElementById('question-b-trivia-one');
+const questionBTriviaOneButtons = document.querySelectorAll('#question-b-trivia-one button');
+const questionCTriviaOne = document.getElementById('question-c-trivia-one');
+const questionCTriviaOneButtons = document.querySelectorAll('#question-c-trivia-one button');
+const resultsTriviaOne = document.getElementById('results-trivia-one');
+const firstP = document.querySelector('#results-trivia-one p:first-of-type');
+const lastP = document.querySelector('#results-trivia-one p:last-of-type');
+const img = document.querySelector('#results-trivia-one img');
+
+//Constante de las respuestas de las preguntas
+const answers = {
+    "question-a-trivia-one": 'Pedro Picapiedra',
+    "question-b-trivia-one": 'Helga Pataki',
+    "question-c-trivia-one": 'Majin Boo',
+    "question-a-trivia-two": 'Clarence',
+    "question-b-trivia-two": 'Hora de aventura',
+    "question-c-trivia-two": 'Steven Universe'
+};
+
+//Por un comienzo todas las respuestas son falsas pero se modifican dependiendo de lo que el usuario responda.
+const rightAnswers = {
+    "question-a-trivia-one": false,
+    "question-b-trivia-one": false,
+    "question-c-trivia-one": false,
+    "question-a-trivia-two": false,
+    "question-b-trivia-two": false,
+    "question-c-trivia-two": false
+};
+
+// primer argumento recibe el texto del primer parrafo (firstPText)
+// el segundo esta recibiendo el texto del ultimo parrafo(lastPText).
+// El tercero recibe el origen de la imagen "src" (imgSrc).
+// El cuarto recibe el "alt"(descripción de la imagen)(mgAlt).
+// Estos argumentos se utilizan para modificar los párrafos y la imagen de la primera trivia
+const setResultsTriviaOne = (firstPText, lastPText, imgSrc, imgAlt) => {
+    firstP.textContent = firstPText;
+    lastP.textContent = lastPText;
+    img.src = imgSrc;
+    img.alt = imgAlt;
+}
+
+// Muestra en pantalla nombre de usuario ingresado anteriormente y opción de trivias.
+next.onclick = () => {
+    // Se modifica texto del saludo utilizando template string (concatenar el texto), con el nombre del usuario.
+    greetingWithName.textContent = 'Hola ' + nameUser.value + ',';
+    //Añade la clase "hide" (esconder) al DIV con id "welcome".
+    welcome.classList.add('hide');
+    //Elimina la clase "hide"(esconder) al DIV con id "trivias".
+    trivias.classList.remove('hide');
+}
+
+// Se ejecutará el juego cuando el usuario haga click en el elemento.
+triviaOne.onclick = () => {
+    //Añade la clase "hide"(esconder) al DIV con id "trivias".
+    trivias.classList.add('hide');
+    //Elimina la clase "hide"(esconder) al DIV con id "question-a-trivia-one".
+    questionATriviaOne.classList.remove('hide');
+}
+
+// Iterar(repetir) los botones de respuestas de la pregunta A de la trivia 1.
+for (let iteration = 0; iteration < questionATriviaOneButtons.length; iteration++) {
+    // se almacenan en  la constante "button" el botónn actual que se esta repetiendo
+    const button = questionATriviaOneButtons[iteration];
+    button.onclick = () => {
+        rightAnswers['question-a-trivia-one'] = answers['question-a-trivia-one'] === button.textContent;
+        questionATriviaOne.classList.add('hide');
+        questionBTriviaOne.classList.remove('hide');
+    }
+}
+
+// Iterar(repetir) los botones de respuestas de la pregunta B de la trivia 1.
+for (let iteration = 0; iteration < questionBTriviaOneButtons.length; iteration++) {
+     // se almacenan en  la constante "button" el botónn actual que se esta repetiendo
+    const button = questionBTriviaOneButtons[iteration];
+    button.onclick = () => {
+        rightAnswers['question-b-trivia-one'] = answers['question-b-trivia-one'] === button.textContent;
+        questionBTriviaOne.classList.add('hide');
+        questionCTriviaOne.classList.remove('hide');
+    }
+}
+
+// Iterar(repetir) los botones de respuestas de la pregunta C de la trivia 1.
+for (let iteration = 0; iteration < questionCTriviaOneButtons.length; iteration++) {
+     // se almacenan en  la constante "button" el botónn actual que se esta repetiendo
+    const button = questionCTriviaOneButtons[iteration];
+    
+    // Se captura el evento onclick del botón.
+    button.onclick = () => {
+        rightAnswers['question-c-trivia-one'] = answers['question-c-trivia-one'] === button.textContent;
+        const totalRightAnswers = Object.values(rightAnswers).filter(rightAnswer => rightAnswer).length;
+        const savedNameUser = nameUser.value;
+    
+        // Comentarios y gifs dependiendo del resultado del usurio.
+        if (totalRightAnswers === 0) {
+            setResultsTriviaOne(
+                '0/3',
+                'Nooo ' + savedNameUser + '! Haz fallado en esta oportunidad. Vuelve a casa, enciende la TV e intenta nuevamente.',
+                'https://media0.giphy.com/media/3o6Ztq9bsJps4ljwZ2/giphy.gif?cid=ecf05e47ym8b3fko4z1x9mxvf7q36a5epbo1q4v6u91c10tc&rid=giphy.gif',
+                'cry'
+            );
+        } else if (totalRightAnswers === 1) {
+            setResultsTriviaOne(
+                '1/3',
+                'Ups ' + savedNameUser + '! Haz fallado en esta ocasión . Pero no te desanimes, intenta nuevamente.',
+                'https://media2.giphy.com/media/3o6wrebnKWmvx4ZBio/200w.webp?cid=ecf05e47lmcbncix4mj5pxr2rdiyr1w3u6xrzg5dac0my0q5&rid=200w.webp',
+                'sad'
+            );
+        } else if (totalRightAnswers === 2) {
+            setResultsTriviaOne(
+                '2/3',
+                'Buen trabajo ' + savedNameUser + ', ¡casi le haz acertado a todas! No te rindas, Sigue intentando.',
+                'https://media0.giphy.com/media/pejC6N6W5GLEPtA27w/giphy.gif?cid=ecf05e477nja5qguxlnxuscg6gkcugvlboftoqjjee4ib4az&rid=giphy.gif',
+                'dance'
+            );
+        } else {
+            setResultsTriviaOne(
+                '3/3',
+                'WOW... Felicidades ' + savedNameUser + '! Le haz acertado a todas las preguntas. Eres genial, ¡sigue así!',
+                'https://media0.giphy.com/media/o75ajIFH0QnQC3nCeD/200.webp?cid=ecf05e476tq2v3hycwk9qp4h3xpzummdfmd8i77rnl7puijs&rid=200.webp',
+                'winner'
+            );
+        }
+    
+        questionCTriviaOne.classList.add('hide');
+        resultsTriviaOne.classList.remove('hide');
+    }
+}
+// Iterar(repetir) los botones de respuestas de la pregunta A de la trivia 2.
+for (let iteration = 0; iteration < questionATriviaTwoButtons.length; iteration++) {
+    // se almacenan en  la constante "button" el botónn actual que se esta repetiendo
+    const button = questionATriviaTwoButtons[iteration];
+    button.onclick = () => {
+        rightAnswersTriviaTwo['question-a-trivia-two'] = answersTriviaTwo['question-a-trivia-two'] === button.textContent;
+        questionATriviaTwo.classList.add('hide');
+        questionBTriviaTwo.classList.remove('hide');
+    }
+}

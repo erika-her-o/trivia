@@ -1,0 +1,137 @@
+/* Imagen de fondo */
+body {
+  background: no-repeat center/100%
+    url(https://static.vecteezy.com/system/resources/previews/000/544/890/non_2x/comic-book-background-bomb-cartoon-style-with-halftone-texture-vector.jpg);
+  margin: 0;
+}
+
+/* Diseño de tipo de letra, tamaño y color del titulo en el encabezado*/
+h1 {
+  font-family: monospace;
+  font-size: 28px;
+  color: #5c5486;
+}
+
+/* Diseño de tamaño de letra y color del título de bienvenida*/
+h2 {
+  font-style: italic;
+  font-size: 45px;
+  color: #5c5486;
+}
+
+/* Diseño de tipo de letra y tamaño de los textos en los parrafos*/
+p {
+  font-family: ranga;
+  font-size: 25px;
+}
+
+/* Diseño de tipo de letra en la parte Ingrese su nombre*/
+label {
+  font-style: italic;
+}
+
+#name-user nameUser {
+  font-family: italic;
+  font-size: 50px;
+}
+
+/* Oculta elementos que poseen esta clase*/
+.hide {
+  display: none;
+}
+
+/* Imagen de fondo en el encabezado*/
+.background {
+  background: no-repeat center/100%
+    url(https://www.desdelaplaza.com/wp-content/uploads/2019/09/dibujos-animados.jpg);
+  border: 3px solid black;
+}
+/* Transparencia para que se vea el titulo en el encabezado*/
+.transparent {
+  margin: 32px auto;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.8;
+  font-weight: bold;
+  color: #9ae1eb;
+  text-align: center;
+  width: 30%;
+}
+
+/* Diseño de margen, anchura y texto centralizado de la página */
+#welcome,
+.trivia,
+.question,
+.results {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Display para volver flexible los elementos que tengan esta clase*/
+.buttons {
+  display: flex;
+}
+
+/* Diseño de los botones*/
+.buttons button, .results button {
+  font-size: 45px;
+  border: none;
+  outline: none;
+  border-radius: 70px;
+  padding: 30px;
+  color: azure;
+}
+
+/* Colores de botón de opción de trivia 1 (Dibujos de antes)*/
+.buttons button:first-of-type {
+  margin-right: auto;
+  background-color: rgb(50, 47, 240);
+}
+
+/* Colores de botón de opción de trivia 2 (Dibujos de ahora)*/
+.buttons button:last-of-type {
+  margin-left: auto;
+  background-color: #f32222;
+}
+
+.results button {
+  margin: 0 auto;
+  background-color: #44c662;
+  display: block;
+  margin-top: 20px;
+}
+
+/* Cuando el cursor este posicionado en un botón, este tiene un cambio*/
+button:hover {
+  transition: all 0.4s;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* Las trivias y las imagenes tengan el tamaño, margen y oculatmiento*/
+.trivia img {
+  width: 180px;
+  display: block;
+  margin: 10px auto 0 auto;
+  border-radius: 20px;
+}
+
+/* Ancho para las preguntas, imagenes y resultados*/
+.question img,
+.results img {
+  width: 200px;
+}
+
+/* Diseño de botones de las alternativas*/
+.alternatives button {
+  width: 200px;
+  display: block;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  padding: 15px;
+  margin: 10px auto;
+  background-color: #c4c4c4;
+}
